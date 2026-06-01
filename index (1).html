@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estavine — Aksesoris & Rajut</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ============ NAV ============ -->
+    <nav>
+      <a href="assets/logo.png" class="nav-logo">Esta<span>vine</span></a>
+      <ul class="nav-links">
+        <li><a href="#kategori">Kategori</a></li>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#ulasan">Ulasan</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#pesansekarang">Pesan Sekarang</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-cart-btn" id="openCartBtn" aria-label="Buka keranjang">
+          🛒 <span class="nav-cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============ HERO (SIMPLE) ============ -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">✦ Handmade with Love</div>
+        <h1 class="hero-title">
+          <span class="hl">Rajut</span> &amp; <span class="hl">Aksesoris</span><br />
+          Buatan Tangan
+        </h1>
+        <p class="hero-desc">
+          Koleksi rajutan lembut dan aksesoris cantik — dibuat satu per satu
+          dengan cinta untuk menemani gaya kamu sehari-hari.
+        </p>
+        <div class="hero-actions">
+          <a href="#produk" class="btn-primary">Lihat Koleksi</a>
+          <a href="#kategori" class="btn-outline">Jelajahi Kategori</a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="hl-item">
+            <div class="hl-icon">🧶</div>
+            <div class="hl-text">
+              <strong>Rajut</strong>
+              <span>Premium handmade</span>
+            </div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-icon">💍</div>
+            <div class="hl-text">
+              <strong>Aksesoris</strong>
+              <span>Cantik & unik</span>
+            </div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-icon">✨</div>
+            <div class="hl-text">
+              <strong>Custom</strong>
+              <span>Sesuai keinginan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RUNNING BANNER ============ -->
+    <div class="running-banner">
+  <div class="running-track">
+    <div class="running-content">
+      <span>RAJUTAN</span>
+      <span>KEYCHAIN</span>
+      <span>AKSESORIS</span>
+      <span>AESTHETIC</span>
+      <span>CUSTOM</span>
+      <span>PENGIRIMAN SELURUH INDONESIA</span>
+      <span>HANDMADE</span>
+      <span>PREMIUM QUALITY</span>
+      <span>GIFT READY</span>
+    </div>
+
+    <div class="running-content">
+      <span>✦ TERJANGKAU</span>
+      <span>✦ AESTHETIC</span>
+      <span>✦ CUSTOM</span>
+      <span>✦ PENGIRIMAN SELURUH INDONESIA</span>
+      <span>✦ HANDMADE</span>
+      <span>✦ PREMIUM QUALITY</span>
+      <span>✦ GIFT READY</span>
+    </div>
+  </div>
+</div>
+
+    <!-- ============ CATEGORIES ============ -->
+    <section class="categories" id="kategori">
+      <div class="section-head">
+        <div>
+          <div class="section-label">Jelajahi</div>
+          <h2 class="section-title">Koleksi <em>Pilihan</em></h2>
+        </div>
+      </div>
+
+      <div class="cat-grid">
+        <div class="cat-card" data-cat="Rajutan">
+          <div class="cat-emoji">🧣</div>
+          <div class="cat-name">Rajutan</div>
+        </div>
+        <div class="cat-card" data-cat="Kerajinan">
+          <div class="cat-emoji">💐</div>
+          <div class="cat-name">Kerajinan</div>
+        </div>
+        <div class="cat-card" data-cat="Aksesoris">
+          <div class="cat-emoji">💍</div>
+          <div class="cat-name">Aksesoris</div>
+        </div>
+        <div class="cat-card" data-cat="Custom">
+          <div class="cat-emoji">🧸</div>
+          <div class="cat-name">Custom</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="products" id="produk">
+      <div class="section-head">
+        <div>
+          <div class="section-label">Terlaris</div>
+          <h2 class="section-title">Produk <em>Favorit</em></h2>
+        </div>
+      </div>
+
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="Semua">Semua</button>
+        <button class="filter-tab" data-filter="Rajutan">Rajutan</button>
+        <button class="filter-tab" data-filter="Kerajinan">Kerajinan</button>
+        <button class="filter-tab" data-filter="Aksesoris">Aksesoris</button>
+        <button class="filter-tab" data-filter="Custom">Custom</button>
+      </div>
+
+      <!-- Produk di-render otomatis dari JS.
+           Untuk mengganti gambar: edit array PRODUCTS di script.js,
+           ubah field "image" dengan path gambar kamu, contoh:
+           image: "assets/cardigan.jpg" -->
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+<section class="testimonials" id="ulasan">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Ulasan</div>
+      <h2 class="section-title">Apa Kata <em>Pelanggan</em></h2>
+    </div>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>
+        Rajutannya rapi banget dan hasilnya sesuai foto.
+        Pengiriman juga cepat. Recommended!
+      </p>
+      <h4>— Salsa, Malang</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>
+        Boneka custom lucu dan detailnya bagus.
+        Cocok buat hadiah ulang tahun.
+      </p>
+      <h4>— Nabila, Surabaya</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>
+        Harga terjangkau, kualitas premium.
+        Pasti order lagi di Estavine.
+      </p>
+      <h4>— Dinda, Kediri</h4>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PESAN SEKARANG ============ -->
+<section class="cta-order" id="pesansekarang">
+  <div class="cta-content">
+    <span class="section-label">Pesan Sekarang</span>
+
+    <h2>
+      Tertarik dengan Produk <em>Estavine?</em>
+    </h2>
+
+    <p>
+      Temukan rajutan, aksesoris, dan kerajinan handmade yang dibuat
+      dengan penuh cinta. Hubungi kami langsung melalui WhatsApp untuk
+      pemesanan atau custom request.
+    </p>
+
+    <a
+      href="https://wa.me/6285856814316"
+      target="_blank"
+      class="cta-button"
+    >
+      💬 Pesan via WhatsApp
+    </a>
+  </div>
+</section>
+
+    <!-- ============ FOOTER ============ -->
+<footer class="footer" id="tentang">
+
+  <div class="footer-grid">
+
+    <div>
+      <h3>Estavine</h3>
+      <p>
+        Handmade crochet, kerajinan, dan aksesoris
+        yang dibuat dengan penuh cinta untuk setiap pelanggan.
+      </p>
+    </div>
+
+    <div>
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#kategori">Kategori</a></li>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#ulasan">Ulasan</a></li>
+        <li><a href="#pesansekarang">Pesan Sekarang</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Kontak</h4>
+      <ul>
+        <li>📱 0858-5681-4316</li>
+        <li>📍 Malang, Jawa Timur</li>
+        <li>Ig: @estavine.co</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Sosial Media</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/estavine.co/" target="_blank">Instagram</a></li>
+        <li><a href="https://wa.me/6285856814316" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Estavine — Handmade with Love ✨
+  </div>
+
+</footer>
+
+    <!-- ============ CART DRAWER ============ -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="cart-head">
+        <h3>Keranjang Belanja</h3>
+        <button class="cart-close" id="closeCartBtn" aria-label="Tutup">✕</button>
+      </div>
+
+      <div class="cart-toolbar">
+        <label class="cart-check-all">
+          <input type="checkbox" id="checkAll" />
+          <span>Pilih semua</span>
+        </label>
+        <button class="cart-clear" id="clearCartBtn">Kosongkan</button>
+      </div>
+
+      <div class="cart-body" id="cartBody">
+        <p class="cart-empty">Keranjang masih kosong.</p>
+      </div>
+
+      <div class="cart-foot">
+        <div class="cart-total-row">
+          <span>Total terpilih</span>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+
+        <div class="cart-form">
+          <input type="text" id="custName" placeholder="Nama kamu" />
+          <textarea id="custAddr" rows="2" placeholder="Alamat pengiriman"></textarea>
+        </div>
+
+        <button class="cart-checkout" id="checkoutBtn">
+          Belanja Sekarang via WhatsApp
+        </button>
+      </div>
+    </aside>
+
+    <!-- Floating cart button (mobile) -->
+    <button class="fab-cart" id="fabCart" aria-label="Keranjang">
+      🛒<span class="fab-count" id="fabCount">0</span>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
