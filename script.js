@@ -16,7 +16,7 @@ const PRODUCTS = [
   { id: 1, name: "Gantungan Kunci Kelinci",  category: "Rajutan",   price: 18000, oldPrice: 20000,   badge: "Baru", emoji: "🧶", image: "assets/keychain.jpg" },
   { id: 2, name: "Vas Bunga Rajut",     category: "Kerajinan",       price: 11000, oldPrice: 120000, badge: "Sale", emoji: "💐", image: "assets/vas.jpg" },
   { id: 3, name: "Jepitan Rambut Kucing",    category: "Aksesoris", price: 5000,  oldPrice: 7000,   badge: null,   emoji: "💐", image: "assets/hairclip.jpg" },
-  { id: 4, name: "Boneka Pinguin", category: "Custom",    price: 35000, oldPrice: 40.000,   badge: "Baru", emoji: "🧸", image: "assets/pinguin-amigurui.jpg" },
+  { id: 4, name: "Boneka Pinguin", category: "Custom",    price: 35000, oldPrice: 40000,   badge: "Baru", emoji: "🧸", image: "assets/pinguin-amigurui.jpg" },
   { id: 5, name: "Gelang Manik",     category: "Aksesoris", price: 10000,  oldPrice: 12000,   badge: null,   emoji: "🎀", image: "assets/gelang-1.jpg" },
   { id: 6, name: "Amigurumi Bebek",     category: "Custom",   price: 35000,  oldPrice: 40000, badge: "Sale", emoji: "🧤", image: "assets/duck-amigurui.jpg" },
   { id: 7, name: "Tempat Pensil",        category: "Kerajinan",   price: 20000, oldPrice: 25000,   badge: null,   emoji: "👒", image: "assets/kotak-pensil.jpg" },
@@ -263,19 +263,18 @@ $("#checkoutBtn").addEventListener("click", () => {
   const total = selected.reduce((s, c) => s + c.price * c.qty, 0);
 
   const msg =
-`Halo kak Estavine ✨
-
+`Halo kak,
 Saya ingin pesan produk berikut:
 
-*Nama:* ${name}
-*Alamat:* ${addr}
+Nama: ${name}
+Alamat: ${addr}
 
-*Pesanan:*
+Pesanan:
 ${lines.join("\n")}
 
-*Total: ${formatRp(total)}*
+Total: ${formatRp(total)}
 
-Mohon info ketersediaan & ongkir ya kak. Terima kasih 🌸`;
+Mohon info ketersediaan & ongkir ya kak. Terima kasih!`;
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
