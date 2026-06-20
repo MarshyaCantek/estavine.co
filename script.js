@@ -41,7 +41,7 @@ const PRODUCTS = [
     oldPrice: 17000,
     badge: "New",
     emoji: "💐",
-    image: "assets/gantungan-gurita.jpeg",
+    image: "assets/octoribbon.jpeg",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const PRODUCTS = [
     oldPrice: 13000,
     badge: "New",
     emoji: "🧸",
-    image: "assets/keychain-pita.jpeg",
+    image: "assets/keychain_pita.jpeg",
   },
   {
     id: 5,
@@ -81,7 +81,7 @@ const PRODUCTS = [
     oldPrice: 15000,
     badge: "New",
     emoji: "👒",
-    image: "assets/jepitan-emoji.jpeg",
+    image: "assets/jepitanemoji.jpeg",
   },
 ];
 
