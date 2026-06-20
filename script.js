@@ -13,14 +13,13 @@ const WHATSAPP_NUMBER = "6285856814316"; // ganti dengan nomor toko (format inte
 //   2. Ubah field `image` di bawah jadi: image: "assets/cardigan.jpg"
 //   3. Jika `image` kosong (""), emoji di field `emoji` akan ditampilkan.
 const PRODUCTS = [
-  { id: 1, name: "Gantungan Kunci Kelinci",  category: "Rajutan",   price: 18000, oldPrice: 20000,   badge: "Baru", emoji: "🧶", image: "assets/keychain.jpg" },
-  { id: 2, name: "Vas Bunga Rajut",     category: "Kerajinan",       price: 11000, oldPrice: 120000, badge: "Sale", emoji: "💐", image: "assets/vas.jpg" },
-  { id: 3, name: "Jepitan Rambut Kucing",    category: "Aksesoris", price: 5000,  oldPrice: 7000,   badge: null,   emoji: "💐", image: "assets/hairclip.jpg" },
-  { id: 4, name: "Boneka Pinguin", category: "Custom",    price: 35000, oldPrice: 40000,   badge: "Baru", emoji: "🧸", image: "assets/pinguin-amigurui.jpg" },
-  { id: 5, name: "Gelang Manik",     category: "Aksesoris", price: 10000,  oldPrice: 12000,   badge: null,   emoji: "🎀", image: "assets/gelang-1.jpg" },
-  { id: 6, name: "Amigurumi Bebek",     category: "Custom",   price: 35000,  oldPrice: 40000, badge: "Sale", emoji: "🧤", image: "assets/duck-amigurui.jpg" },
-  { id: 7, name: "Tempat Pensil",        category: "Kerajinan",   price: 20000, oldPrice: 25000,   badge: null,   emoji: "👒", image: "assets/kotak-pensil.jpg" },
-  { id: 8, name: "Tas Rajut Pinky",    category: "Rajutan",       price: 150000, oldPrice: 180000,   badge: "Baru", emoji: "💼", image: "assets/tas.jpg" },
+  { id: 1, name: "Keychain Kelinci",  category: "Rajutan",   price: 30000, oldPrice: 35000,   badge: "Baru", emoji: "🧶", image: "assets/amiguruirabbit.jpg" },
+  { id: 2, name: "Keychain Gurita",     category: "Rajutan",       price: 15000, oldPrice: 17000, badge: "null", emoji: "💐", image: "assets/gurita.jpg" },
+  { id: 3, name: "Keychain Gurita Pita",    category: "Rajutan", price: 15000,  oldPrice: 17000,   badge: "null",   emoji: "💐", image: "assets/gantungan-gurita.jpg" },
+  { id: 4, name: "Keychain Pita", category: "Rajutan",    price: 10000, oldPrice: 13000,   badge: "Baru", emoji: "🧸", image: "assets/keychain-pita.jpg" },
+  { id: 5, name: "Keychain Totoro",     category: "Rajutan", price: 25000,  oldPrice: 30000,   badge: "Bestseller",   emoji: "🎀", image: "assets/gelang-1.jpg" },
+  { id: 6, name: "Keychain Kucing",     category: "Rajutan",   price: 15000,  oldPrice: 20000, badge: "null", emoji: "🧤", image: "assets/kucing.jpg" },
+  { id: 7, name: "Jepitan Emoji",        category: "Rajutan",   price: 10000, oldPrice: 15000,   badge: "null",   emoji: "👒", image: "assets/jepitan-emoji.jpg" },
 ];
 
 // ============ STATE ============
