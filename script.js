@@ -13,13 +13,76 @@ const WHATSAPP_NUMBER = "6285856814316"; // ganti dengan nomor toko (format inte
 //   2. Ubah field `image` di bawah jadi: image: "assets/cardigan.jpg"
 //   3. Jika `image` kosong (""), emoji di field `emoji` akan ditampilkan.
 const PRODUCTS = [
-  { id: 1, name: "Keychain Kelinci",  category: "Rajutan",   price: 30000, oldPrice: 35000,   badge: "Baru", emoji: "🧶", image: "assets/amiguruirabbit.jpg" },
-  { id: 2, name: "Keychain Gurita",     category: "Rajutan",       price: 15000, oldPrice: 17000, badge: "null", emoji: "💐", image: "assets/gurita.jpg" },
-  { id: 3, name: "Keychain Gurita Pita",    category: "Rajutan", price: 15000,  oldPrice: 17000,   badge: "null",   emoji: "💐", image: "assets/gantungan-gurita.jpg" },
-  { id: 4, name: "Keychain Pita", category: "Rajutan",    price: 10000, oldPrice: 13000,   badge: "Baru", emoji: "🧸", image: "assets/keychain-pita.jpg" },
-  { id: 5, name: "Keychain Totoro",     category: "Rajutan", price: 25000,  oldPrice: 30000,   badge: "Bestseller",   emoji: "🎀", image: "assets/gelang-1.jpg" },
-  { id: 6, name: "Keychain Kucing",     category: "Rajutan",   price: 15000,  oldPrice: 20000, badge: "null", emoji: "🧤", image: "assets/kucing.jpg" },
-  { id: 7, name: "Jepitan Emoji",        category: "Rajutan",   price: 10000, oldPrice: 15000,   badge: "null",   emoji: "👒", image: "assets/jepitan-emoji.jpg" },
+  {
+    id: 1,
+    name: "Keychain Kelinci",
+    category: "Rajutan",
+    price: 30000,
+    oldPrice: 35000,
+    badge: "Baru",
+    emoji: "🧶",
+    image: "assets/amiguruirabbit.jpg",
+  },
+  {
+    id: 2,
+    name: "Keychain Gurita",
+    category: "Rajutan",
+    price: 15000,
+    oldPrice: 17000,
+    badge: "null",
+    emoji: "💐",
+    image: "assets/gurita.jpg",
+  },
+  {
+    id: 3,
+    name: "Keychain Gurita Pita",
+    category: "Rajutan",
+    price: 15000,
+    oldPrice: 17000,
+    badge: "null",
+    emoji: "💐",
+    image: "assets/gantungan-gurita.jpg",
+  },
+  {
+    id: 4,
+    name: "Keychain Pita",
+    category: "Rajutan",
+    price: 10000,
+    oldPrice: 13000,
+    badge: "Baru",
+    emoji: "🧸",
+    image: "assets/keychain-pita.jpg",
+  },
+  {
+    id: 5,
+    name: "Keychain Totoro",
+    category: "Rajutan",
+    price: 25000,
+    oldPrice: 30000,
+    badge: "Bestseller",
+    emoji: "🎀",
+    image: "assets/totoro.jpg",
+  },
+  {
+    id: 6,
+    name: "Keychain Kucing",
+    category: "Rajutan",
+    price: 15000,
+    oldPrice: 20000,
+    badge: "null",
+    emoji: "🧤",
+    image: "assets/kucing.jpg",
+  },
+  {
+    id: 7,
+    name: "Jepitan Emoji",
+    category: "Rajutan",
+    price: 10000,
+    oldPrice: 15000,
+    badge: "null",
+    emoji: "👒",
+    image: "assets/jepitan-emoji.jpg",
+  },
 ];
 
 // ============ STATE ============
@@ -29,41 +92,44 @@ let cart = JSON.parse(localStorage.getItem("estavine_cart") || "[]");
 
 // ============ DOM ============
 const $ = (sel) => document.querySelector(sel);
-const grid       = $("#productsGrid");
+const grid = $("#productsGrid");
 const filterTabs = $("#filterTabs");
-const catGrid    = document.querySelectorAll(".cat-card");
+const catGrid = document.querySelectorAll(".cat-card");
 const cartDrawer = $("#cartDrawer");
-const cartOverlay= $("#cartOverlay");
-const cartBody   = $("#cartBody");
-const cartTotal  = $("#cartTotal");
-const cartCount  = $("#cartCount");
-const fabCount   = $("#fabCount");
-const checkAll   = $("#checkAll");
+const cartOverlay = $("#cartOverlay");
+const cartBody = $("#cartBody");
+const cartTotal = $("#cartTotal");
+const cartCount = $("#cartCount");
+const fabCount = $("#fabCount");
+const checkAll = $("#checkAll");
 
 // ============ UTIL ============
 const formatRp = (n) => "Rp " + Number(n).toLocaleString("id-ID");
-const saveCart = () => localStorage.setItem("estavine_cart", JSON.stringify(cart));
+const saveCart = () =>
+  localStorage.setItem("estavine_cart", JSON.stringify(cart));
 
 // ============ RENDER PRODUK ============
 function renderProducts() {
-  const list = activeFilter === "Semua"
-    ? PRODUCTS
-    : PRODUCTS.filter((p) => p.category === activeFilter);
+  const list =
+    activeFilter === "Semua"
+      ? PRODUCTS
+      : PRODUCTS.filter((p) => p.category === activeFilter);
 
   if (list.length === 0) {
     grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-light);padding:2rem">Belum ada produk untuk kategori ini.</p>`;
     return;
   }
 
-  grid.innerHTML = list.map((p) => {
-    const visual = p.image
-      ? `<img src="${p.image}" alt="${p.name}" />`
-      : p.emoji;
-    const badge = p.badge
-      ? `<span class="product-badge ${p.badge.toLowerCase() === "sale" ? "sale" : ""}">${p.badge}</span>`
-      : "";
-    const inCart = cart.find((c) => c.id === p.id);
-    return `
+  grid.innerHTML = list
+    .map((p) => {
+      const visual = p.image
+        ? `<img src="${p.image}" alt="${p.name}" />`
+        : p.emoji;
+      const badge = p.badge
+        ? `<span class="product-badge ${p.badge.toLowerCase() === "sale" ? "sale" : ""}">${p.badge}</span>`
+        : "";
+      const inCart = cart.find((c) => c.id === p.id);
+      return `
       <article class="product-card">
         <div class="product-img">
           ${visual}
@@ -84,7 +150,8 @@ function renderProducts() {
         </div>
       </article>
     `;
-  }).join("");
+    })
+    .join("");
 }
 
 // ============ FILTER ============
@@ -149,11 +216,12 @@ function renderCart() {
   if (cart.length === 0) {
     cartBody.innerHTML = `<p class="cart-empty">Keranjang masih kosong.</p>`;
   } else {
-    cartBody.innerHTML = cart.map((c) => {
-      const visual = c.image
-        ? `<img src="${c.image}" alt="${c.name}" />`
-        : c.emoji;
-      return `
+    cartBody.innerHTML = cart
+      .map((c) => {
+        const visual = c.image
+          ? `<img src="${c.image}" alt="${c.name}" />`
+          : c.emoji;
+        return `
         <div class="cart-item" data-id="${c.id}">
           <input type="checkbox" data-check="${c.id}" ${c.selected ? "checked" : ""} />
           <div class="cart-item-thumb">${visual}</div>
@@ -169,7 +237,8 @@ function renderCart() {
           <button class="cart-item-del" data-del="${c.id}" aria-label="Hapus">🗑</button>
         </div>
       `;
-    }).join("");
+      })
+      .join("");
   }
 
   // total terpilih
@@ -193,7 +262,9 @@ cartBody.addEventListener("click", (e) => {
   const qty = e.target.closest("[data-qty]");
   if (del) {
     cart = cart.filter((c) => c.id !== Number(del.dataset.del));
-    saveCart(); renderCart(); renderProducts();
+    saveCart();
+    renderCart();
+    renderProducts();
     return;
   }
   if (qty) {
@@ -202,7 +273,8 @@ cartBody.addEventListener("click", (e) => {
     if (!item) return;
     if (qty.dataset.qty === "inc") item.qty += 1;
     else item.qty = Math.max(1, item.qty - 1);
-    saveCart(); renderCart();
+    saveCart();
+    renderCart();
   }
 });
 
@@ -211,19 +283,23 @@ cartBody.addEventListener("change", (e) => {
   if (!chk) return;
   const item = cart.find((c) => c.id === Number(chk.dataset.check));
   if (item) item.selected = chk.checked;
-  saveCart(); renderCart();
+  saveCart();
+  renderCart();
 });
 
 checkAll.addEventListener("change", () => {
   cart.forEach((c) => (c.selected = checkAll.checked));
-  saveCart(); renderCart();
+  saveCart();
+  renderCart();
 });
 
 $("#clearCartBtn").addEventListener("click", () => {
   if (cart.length === 0) return;
   if (confirm("Kosongkan seluruh keranjang?")) {
     cart = [];
-    saveCart(); renderCart(); renderProducts();
+    saveCart();
+    renderCart();
+    renderProducts();
   }
 });
 
@@ -250,19 +326,26 @@ $("#checkoutBtn").addEventListener("click", () => {
   const selected = cart.filter((c) => c.selected);
 
   if (selected.length === 0) {
-    alert("Pilih dulu produk yang ingin dibeli (centang di kotak sebelah produk).");
+    alert(
+      "Pilih dulu produk yang ingin dibeli (centang di kotak sebelah produk).",
+    );
     return;
   }
-  if (!name) { alert("Mohon isi nama kamu."); return; }
-  if (!addr) { alert("Mohon isi alamat pengiriman."); return; }
+  if (!name) {
+    alert("Mohon isi nama kamu.");
+    return;
+  }
+  if (!addr) {
+    alert("Mohon isi alamat pengiriman.");
+    return;
+  }
 
   const lines = selected.map(
-    (c, i) => `${i + 1}. ${c.name} (${c.qty}x) - ${formatRp(c.price * c.qty)}`
+    (c, i) => `${i + 1}. ${c.name} (${c.qty}x) - ${formatRp(c.price * c.qty)}`,
   );
   const total = selected.reduce((s, c) => s + c.price * c.qty, 0);
 
-  const msg =
-`Halo kak,
+  const msg = `Halo kak,
 Saya ingin pesan produk berikut:
 
 Nama: ${name}
@@ -286,9 +369,9 @@ renderCart();
 // Active Navbar
 const navLinks = document.querySelectorAll(".nav-links a");
 
-navLinks.forEach(link => {
-  link.addEventListener("click", function() {
-    navLinks.forEach(item => item.classList.remove("active"));
+navLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    navLinks.forEach((item) => item.classList.remove("active"));
     this.classList.add("active");
   });
 });
